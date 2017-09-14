@@ -67,5 +67,6 @@ var signup = (req, res) => {
 
 module.exports = {
   signup,
-  signin
+  signin,
+  getAllUser
 }
