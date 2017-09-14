@@ -24,6 +24,48 @@ var signup = (req, res) => {
   }
 
 
+  var signin = (req, res) => {
+    models.findOne({
+      username: req.body.username
+    })
+    .then(result => {
+      if (result != null) {
+        console.log('ini result', result);
+        let password = req.body.password
+        if (bcrypt.compareSync(password, result.password)) {
+          var token = jwt.sign({
+            id: result._id,
+            username: result.username,
+            email: result.email
+          }, process.env.SECRET_KEY)
+          res.send({
+            msg: 'sukses login',
+            token: token
+          })
+        } else {
+          res.send('pass salah')
+        }
+      } else {
+        res.send('data tidak ada')
+      }
+    })
+    .catch(err => {
+      res.send(err)
+    })
+  }
+
+  var getAllUser = (req, res) => {
+    models.find()
+    .then(result => {
+      res.send(resul)
+    })
+    .catch(err => {
+      res.send(err)
+    })
+  }
+
+
 module.exports = {
-  signup
+  signup,
+  signin
 }
