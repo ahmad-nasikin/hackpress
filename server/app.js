@@ -6,7 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors')
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://livecoding:livecoding@cluster0-shard-00-00-mtaex.mongodb.net:27017,cluster0-shard-00-01-mtaex.mongodb.net:27017,cluster0-shard-00-02-mtaex.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin')
+mongoose.connect('mongodb://overflow:overflow@cluster0-shard-00-00-yjwrq.mongodb.net:27017,cluster0-shard-00-01-yjwrq.mongodb.net:27017,cluster0-shard-00-02-yjwrq.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin')
+
 
 var index = require('./routes/index');
 var users = require('./routes/users');
